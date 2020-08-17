@@ -19,8 +19,6 @@ abstract class Form implements \pocketmine\form\Form {
 
     public function handleResponse(Player $player, $data): void {
         $this->handleData($data);
-        var_dump($data);
-        // TODO: Call event.
     }
 
     /**

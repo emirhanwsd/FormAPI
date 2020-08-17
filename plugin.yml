@@ -6,4 +6,4 @@ version: 1.0.0
 
 commands:
   formapi:
-    description: FormAPI komutu.
+    description: FormAPI command.

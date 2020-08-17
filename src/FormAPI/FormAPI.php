@@ -2,15 +2,22 @@
 
 namespace FormAPI;
 
+use FormAPI\event\FormCloseEvent;
+use FormAPI\event\SimpleFormResponseEvent;
 use FormAPI\form\element\Button;
 use FormAPI\form\image\Image;
 use FormAPI\form\SimpleForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
-class FormAPI extends PluginBase {
+class FormAPI extends PluginBase implements Listener {
+
+    public function onEnable(): void { // For testing.
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    }
 
     /**
      * @param string $title
@@ -44,5 +51,25 @@ class FormAPI extends PluginBase {
         ]);
         $sender->sendForm($simpleForm);
         return true;
+    }
+
+    /**
+     * @param SimpleFormResponseEvent $event
+     */
+
+    public function onSimpleFormResponse(SimpleFormResponseEvent $event): void { // For testing.
+        $player = $event->getPlayer();
+        $form = $event->getForm();
+        $selectedButtonIndex = $event->getSelectedButtonIndex();
+        $selectedButton = $form->getButtonByIndex($selectedButtonIndex);
+        $player->sendMessage("You selected: " . $selectedButton->getText());
+    }
+
+    /**
+     * @param FormCloseEvent $event
+     */
+
+    public function onFormClose(FormCloseEvent $event): void { // For testing.
+        var_dump("Closed.");
     }
 }
