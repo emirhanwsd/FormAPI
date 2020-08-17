@@ -1,2 +1,2 @@
 # FormAPI
-Simple &amp; clean API for creating forms
+Simple &amp; clean (OOP-Based) API for creating forms
