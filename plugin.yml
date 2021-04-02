@@ -1,9 +1,0 @@
-name: FormAPI
-main: FormAPI\FormAPI
-api: 3.0.1
-author: xEmirhanWSD
-version: 1.0.0
-
-commands:
-  formapi:
-    description: FormAPI command.
