@@ -1,2 +1,2 @@
 # FormAPI
-Simple &amp; clean (OOP-Based) API for creating forms
+FormAPI plugin for @pmmp
